@@ -7,5 +7,5 @@
 # new environment variables
 
 # modified environment variables
-export PWD='/media/psf/robotics-nd209/my_robot/catkin_ws/build'
-export ROS_PACKAGE_PATH='/home/parallels/workspace/learning/udacity/robotics-nd209/my_robot/catkin_ws/src:/media/psf/robotics-nd209/my_robot/catkin_ws/src:/home/parallels/workspace/learning/udacity/robotics-nd209/ROS/catkin_ws/src:/opt/ros/noetic/share'
+export PWD='/media/psf/nd209-robotics/GoChaseIt/catkin_ws/build'
+export ROS_PACKAGE_PATH='/home/parallels/workspace/learning/udacity/robotics-nd209/my_robot/catkin_ws/src:/media/psf/robotics-nd209/my_robot/catkin_ws/src:/media/psf/nd209-robotics/GoChaseIt/catkin_ws/src:/opt/ros/noetic/share'

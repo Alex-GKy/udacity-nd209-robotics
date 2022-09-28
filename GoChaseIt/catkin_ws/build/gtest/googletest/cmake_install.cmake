@@ -2,7 +2,7 @@
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/media/psf/robotics-nd209/my_robot/catkin_ws/install")
+  set(CMAKE_INSTALL_PREFIX "/media/psf/nd209-robotics/GoChaseIt/catkin_ws/install")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 

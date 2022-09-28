@@ -43,10 +43,10 @@ RM = /usr/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /media/psf/robotics-nd209/my_robot/catkin_ws/src
+CMAKE_SOURCE_DIR = /media/psf/nd209-robotics/GoChaseIt/catkin_ws/src
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /media/psf/robotics-nd209/my_robot/catkin_ws/build
+CMAKE_BINARY_DIR = /media/psf/nd209-robotics/GoChaseIt/catkin_ws/build
 
 # Utility rule file for doxygen.
 
@@ -67,6 +67,6 @@ CMakeFiles/doxygen.dir/clean:
 .PHONY : CMakeFiles/doxygen.dir/clean
 
 CMakeFiles/doxygen.dir/depend:
-	cd /media/psf/robotics-nd209/my_robot/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /media/psf/robotics-nd209/my_robot/catkin_ws/src /media/psf/robotics-nd209/my_robot/catkin_ws/src /media/psf/robotics-nd209/my_robot/catkin_ws/build /media/psf/robotics-nd209/my_robot/catkin_ws/build /media/psf/robotics-nd209/my_robot/catkin_ws/build/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
+	cd /media/psf/nd209-robotics/GoChaseIt/catkin_ws/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /media/psf/nd209-robotics/GoChaseIt/catkin_ws/src /media/psf/nd209-robotics/GoChaseIt/catkin_ws/src /media/psf/nd209-robotics/GoChaseIt/catkin_ws/build /media/psf/nd209-robotics/GoChaseIt/catkin_ws/build /media/psf/nd209-robotics/GoChaseIt/catkin_ws/build/CMakeFiles/doxygen.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/doxygen.dir/depend
 

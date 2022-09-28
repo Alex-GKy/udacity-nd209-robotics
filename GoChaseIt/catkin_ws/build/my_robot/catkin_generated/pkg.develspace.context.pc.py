@@ -4,5 +4,5 @@ PROJECT_PKG_CONFIG_INCLUDE_DIRS = "".split(';') if "" != "" else []
 PROJECT_CATKIN_DEPENDS = "".replace(';', ' ')
 PKG_CONFIG_LIBRARIES_WITH_PREFIX = "".split(';') if "" != "" else []
 PROJECT_NAME = "my_robot"
-PROJECT_SPACE_DIR = "/media/psf/robotics-nd209/my_robot/catkin_ws/devel"
+PROJECT_SPACE_DIR = "/media/psf/nd209-robotics/GoChaseIt/catkin_ws/devel"
 PROJECT_VERSION = "0.0.0"
