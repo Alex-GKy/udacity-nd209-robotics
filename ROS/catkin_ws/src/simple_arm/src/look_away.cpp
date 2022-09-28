@@ -33,7 +33,8 @@ void joint_states_callback(const sensor_msgs::JointState js)
     double tolerance = 0.0005;
 
     // Check if the arm is moving by comparing its current joints position to its latest
-    if (fabs(joints_current_position[0] - joints_last_position[0]) < tolerance && fabs(joints_current_position[1] - joints_last_position[1]) < tolerance)
+    if (fabs(joints_current_position[0] - joints_last_position[0]) 
+        < tolerance && fabs(joints_current_position[1] - joints_last_position[1]) < tolerance)
         moving_state = false;
     else {
         moving_state = true;
