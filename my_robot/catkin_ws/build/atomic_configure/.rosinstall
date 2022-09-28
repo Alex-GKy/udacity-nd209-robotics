@@ -1,0 +1,2 @@
+- setup-file:
+    local-name: /media/psf/robotics-nd209/my_robot/catkin_ws/devel/setup.sh
