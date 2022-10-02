@@ -1,0 +1,7 @@
+{
+    "python.autoComplete.extraPaths": [
+        "/media/psf/workspace/portfolio-projects/nd209-robotics/GoChaseIt/catkin_ws/devel/lib/python3/dist-packages",
+        "/opt/ros/noetic/lib/python3/dist-packages"
+    ],
+    "cmake.sourceDirectory": "${workspaceFolder}/src/ball_chaser"
+}
