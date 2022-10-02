@@ -6,7 +6,10 @@
 			"args": [
 				"--directory",
 				"/media/psf/workspace/portfolio-projects/nd209-robotics/GoChaseIt/catkin_ws",
-				"-DCMAKE_BUILD_TYPE=RelWithDebInfo"
+				"-j4",
+				"-DCMAKE_BUILD_TYPE=Debug",
+                "-DCMAKE_EXPORT_COMPILE_COMMANDS=1"
+				// "-DCMAKE_BUILD_TYPE=RelWithDebInfo"
 			],
 			"problemMatcher": [
 				"$catkin-gcc"
@@ -15,7 +18,7 @@
 				"kind": "build",
 				"isDefault": true
 			},
-			"label": "catkin_make: build"
+			"label": "ROS: central_catkin_make"
 		}
 	]
 }
