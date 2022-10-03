@@ -34,7 +34,7 @@ void process_image_callback(const sensor_msgs::Image img)
     bool ball_found = false;
     float angular_z = 0;
 
-    // TODO: Loop through each pixel in the image and check if there's a bright white one
+    // Loop through each pixel in the image and check if there's a bright white one
     // Then, identify if this pixel falls in the left, mid, or right side of the image
     // Depending on the white ball position, call the drive_bot function and pass velocities to it
     // Request a stop when there's no white ball seen by the camera
@@ -63,10 +63,10 @@ void process_image_callback(const sensor_msgs::Image img)
 
                 cout << ("angular_z is ") << angular_z << "\n"; 
 
-                drive_robot(angular_z, 0.2); 
+                drive_robot(angular_z, 0.3); 
 
                 ball_found = true;
-                // ROS_INFO_STREAM("Ball!");
+                ROS_INFO_STREAM("Ball!");
             }
         
         i++; 
@@ -76,7 +76,7 @@ void process_image_callback(const sensor_msgs::Image img)
         
         // stop the robot
         drive_robot(0,0); 
-        cout << "no ball\n";
+        ROS_INFO_STREAM("No ball :(");
     }
 }
 
