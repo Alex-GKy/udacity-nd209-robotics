@@ -6,7 +6,7 @@
       <!-- Robot pose -->
       <arg name="x" default="6" />
       <arg name="y" default="0" />
-      <arg name="z" default="0" />
+      <arg name="z" default="0.1" />
       <arg name="roll" default="0" />
       <arg name="pitch" default="0" />
       <arg name="yaw" default="3.14" />
@@ -23,9 +23,9 @@
               -R $(arg roll) -P $(arg pitch) -Y $(arg yaw)" />
 
 
-      <!--launch rviz --> 
+      <!--launch rviz 
       <node name="rviz" pkg="rviz" type="rviz" respawn="false" 
             args="-d $(find my_robot)/launch/config.rviz"/>
-
+      -->
             
 </launch>
