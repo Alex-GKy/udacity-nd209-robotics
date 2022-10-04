@@ -78,9 +78,10 @@ void process_image_callback(const sensor_msgs::Image img)
                     i++;
                 }
 
-                // ratio of white/non white pixels determines if the bot moves or not
+                // ratio of white/non white pixels 
                 float white_ratio = white_pixel_count/(img.height * img.step);
-                ROS_INFO_STREAM(white_ratio);
+
+                // if the ball's further away, move the bot, otherwise not
                 if (white_ratio < 0.1) {
                     ROS_INFO_STREAM("Ball's far away");
                     drive_robot(angular_z, 0.3);
