@@ -1,3 +1,5 @@
+venv
+env
 .idea
 c_cpp_properties.json
 .Trash-1000
