@@ -5,6 +5,11 @@
     "version": "0.2.0",
     "configurations": [
         {
+            "name": "ROS: Attach",
+            "type": "ros",
+            "request": "attach"
+        },
+        {
             "name": "ROS: Launch",
             "request": "launch",
             "target": "/media/psf/workspace/portfolio-projects/nd209-robotics/Python/simple-sub/catkin_ws/src/beginner_tutorials/launch/talker.launch",

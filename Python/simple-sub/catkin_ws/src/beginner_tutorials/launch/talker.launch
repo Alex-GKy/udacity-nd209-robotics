@@ -1,4 +1,5 @@
 <launch> 
-    <node pkg="beginner_tutorials" name="talker" type="talker.py">
+    <node pkg="beginner_tutorials" name="talker" type="talker.py"
+    output="screen">
     </node>
 </launch> 
