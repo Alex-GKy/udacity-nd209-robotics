@@ -42,25 +42,32 @@ from datetime import datetime
 from std_msgs.msg import String
 from sensor_msgs.msg import LaserScan
 from nav_msgs.msg import Odometry
+from sensor_msgs.msg import Image
 
 dt = datetime.timestamp(datetime.now())
 
-odometry_topic = "odom"
-scan_topic = "scan"
+odometry_topic = "/odom"
+scan_topic = "/scan"
+image_topic = "/camera/rgb/image_raw"
 
-scan_bag = rosbag.Bag("{topic}-{timestamp}.bag".format(timestamp=dt, topic=scan_topic), 'w')
-odometry_bag = rosbag.Bag("{topic}-{timestamp}.bag".format(timestamp=dt, topic=odometry_topic),'w')
+scan_bag = rosbag.Bag("{topic}-{timestamp}.bag".format(timestamp=dt, topic=scan_topic.replace('/','')), 'w')
+odometry_bag = rosbag.Bag("{topic}-{timestamp}.bag".format(timestamp=dt, topic=odometry_topic.replace('/','')),'w')
+image_bag = rosbag.Bag("{topic}-{timestamp}.bag".format(timestamp=dt, topic=image_topic.replace('/','')), 'w')
 
 def callback(data):
     rospy.loginfo(rospy.get_caller_id() + 'I heard %s', data.data)
 
-def scan_callback(data): 
+def scan_callback(data, topic_name): 
     rospy.loginfo(rospy.get_caller_id() + 'Ranges: {0}'.format(data.ranges))
-    scan_bag.write('/scan', data)
+    scan_bag.write(topic_name, data)
 
-def odometry_callback(data, args): 
+def odometry_callback(data, topic_name): 
     rospy.loginfo(rospy.get_caller_id() + 'Odometry received')
-    odometry_bag.write(args[0], data)
+    odometry_bag.write(topic_name, data)
+
+def image_callback(data, topic_name):
+    rospy.loginfo(rospy.get_caller_id() + 'Image received')
+    image_bag.write(topic_name, data)
     
 def listener():
 
@@ -72,8 +79,9 @@ def listener():
     rospy.init_node('sensor_recorder', anonymous=True)
 
     # rospy.Subscriber('chatter', String, callback)
-    # rospy.Subscriber(scan_topic, LaserScan, scan_callback)
-    rospy.Subscriber(odometry_topic, Odometry, odometry_callback, (odometry_topic))
+    #rospy.Subscriber(scan_topic, LaserScan, scan_callback, scan_topic)
+    #rospy.Subscriber(odometry_topic, Odometry, odometry_callback, odometry_topic)
+    rospy.Subscriber(image_topic, Image, image_callback, image_topic)
 
     rospy.on_shutdown(shutdown_hook)
     # spin() simply keeps python from exiting until this node is stopped
