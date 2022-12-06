@@ -37,11 +37,31 @@
 ## to the 'chatter' topic
 
 import rospy
+import rosbag
+from datetime import datetime
 from std_msgs.msg import String
+from sensor_msgs.msg import LaserScan
+from nav_msgs.msg import Odometry
+
+dt = datetime.timestamp(datetime.now())
+
+odometry_topic = "odom"
+scan_topic = "scan"
+
+scan_bag = rosbag.Bag("{topic}-{timestamp}.bag".format(timestamp=dt, topic=scan_topic), 'w')
+odometry_bag = rosbag.Bag("{topic}-{timestamp}.bag".format(timestamp=dt, topic=odometry_topic),'w')
 
 def callback(data):
     rospy.loginfo(rospy.get_caller_id() + 'I heard %s', data.data)
 
+def scan_callback(data): 
+    rospy.loginfo(rospy.get_caller_id() + 'Ranges: {0}'.format(data.ranges))
+    scan_bag.write('/scan', data)
+
+def odometry_callback(data, args): 
+    rospy.loginfo(rospy.get_caller_id() + 'Odometry received')
+    odometry_bag.write(args[0], data)
+    
 def listener():
 
     # In ROS, nodes are uniquely named. If two nodes with the same
@@ -49,12 +69,19 @@ def listener():
     # anonymous=True flag means that rospy will choose a unique
     # name for our 'listener' node so that multiple listeners can
     # run simultaneously.
-    rospy.init_node('listener', anonymous=True)
+    rospy.init_node('sensor_recorder', anonymous=True)
 
-    rospy.Subscriber('chatter', String, callback)
+    # rospy.Subscriber('chatter', String, callback)
+    # rospy.Subscriber(scan_topic, LaserScan, scan_callback)
+    rospy.Subscriber(odometry_topic, Odometry, odometry_callback, (odometry_topic))
 
+    rospy.on_shutdown(shutdown_hook)
     # spin() simply keeps python from exiting until this node is stopped
     rospy.spin()
+
+def shutdown_hook(): 
+    scan_bag.close()
+    odometry_bag.close()
 
 if __name__ == '__main__':
     listener()

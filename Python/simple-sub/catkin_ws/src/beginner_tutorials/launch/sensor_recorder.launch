@@ -1,0 +1,5 @@
+<launch> 
+    <node pkg="beginner_tutorials" name="sensor_recorder" type="sensor_recorder.py"
+    output="screen">
+    </node>
+</launch> 
